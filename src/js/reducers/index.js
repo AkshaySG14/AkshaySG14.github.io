@@ -1,7 +1,9 @@
-import { ADD_ARTICLE } from "../constants/action-types"
+import { NAVBAR_ITEMS } from "../constants/componentObjects"
+import { ADD_ARTICLE } from "../constants/actionTypes"
 
 const initialState = {
-    articles: []
+    mainNavItems: NAVBAR_ITEMS,
+    mainActiveNavItem: 1
 };
 
 const rootReducer = (state = initialState, action) => {
