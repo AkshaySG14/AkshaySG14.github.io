@@ -2,23 +2,23 @@ import React from "react";
 import PropTypes from "prop-types"
 import {NavItem} from "react-bootstrap"
 
-class MainNavBarElement extends React.Component {
+class SidebarElement extends React.Component {
     handleSelect() {
         alert("selected " + this.props.navItem.id);
     };
 
     render() {
         return (
-            <NavItem className={this.props.navActive ? "active" : ""} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
+            <NavItem className={this.props.navActive ? "active" : "normal"} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
                 {this.props.navItem.name}
             </NavItem>
         )
     }
 }
 
-MainNavBarElement.propTypes = {
+SidebarElement.propTypes = {
     navItem: PropTypes.object.isRequired,
     navActive: PropTypes.bool.isRequired
 };
 
-export default MainNavBarElement;
+export default SidebarElement;

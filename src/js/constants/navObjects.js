@@ -1,7 +1,7 @@
-export const NAVBAR_ITEMS = [
+export const MAIN_NAVBAR_ITEMS = [
     {
         "name": "Home",
-        "id": "index"
+        "id": "HO"
     },
     {
         "name": "Fate's Reprise",
@@ -46,5 +46,28 @@ export const NAVBAR_ITEMS = [
     {
         "name": "Space Shooter",
         "id": "SS"
+    }
+];
+
+export const SIDEBAR_NAV_ITEMS = [
+    {
+        "name": "Summary",
+        "id": "summary"
     },
+    {
+        "name": "Code",
+        "id": "code"
+    },
+    {
+        "name": "Screenshots",
+        "id": "screenshots"
+    },
+    {
+        "name": "Video",
+        "id": "video"
+    },
+    {
+        "name": "Links",
+        "id": "links"
+    }
 ];

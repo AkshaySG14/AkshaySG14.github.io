@@ -1,31 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
-import { addArticle } from "../actions/index";
-
+import MainNavBarElement from "../components/MainNavBarElement";
+import {Navbar, Nav} from "react-bootstrap"
 class MainNavBar extends React.Component {
     render() {
         return (
-            <div id="summary">
-                <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top" id="main-navbar">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-                            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbar">
-                        <p className="navbar-brand">Apps</p>
-                        <ul className="nav navbar-nav nav-fill">
-                            {this.props.navItems.map((navItem, i) => {
-                                return (
-                                    <li key={i} className={"nav-item" + i === this.props.activateNavItem ? " active" : "" }>
-                                        <a className="nav-link" href={navItem.id}>{navItem.name}</a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+            <Navbar inverse collapseOnSelect fixedTop fluid className="navbar-toggleable-md">
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <p>Apps</p>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav bsStyle="tabs" className="nav-fill">
+                        {this.props.navItems.map((navItem, i) => {
+                            return (
+                                <MainNavBarElement key={i} {...{navItem: navItem, navActive: i === this.props.activeNavItem}}/>
+                            );
+                        })}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         )
     }
 }
@@ -44,7 +41,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addArticle: article => dispatch(addArticle(article))
     };
 };
 
