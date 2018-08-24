@@ -16,3 +16,9 @@
     background-color:darkgray;
     color:white;
 }
+
+.sidebar {
+    padding-top: 70px;
+    position: fixed;
+    height: 100%;
+}

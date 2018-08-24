@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
-import MainNavBarElement from "../components/MainNavBarElement";
 import {Navbar, Nav} from "react-bootstrap"
+
+import MainNavBarElement from "../components/MainNavBarElement";
+
 class MainNavBar extends React.Component {
     render() {
         return (

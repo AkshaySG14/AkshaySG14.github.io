@@ -10,7 +10,7 @@ import "./css/SidebarContainer.css"
 class MainNavBar extends React.Component {
     render() {
         return (
-            <div className="col-md-1 hidden-sm-down">
+            <div className="col-md-1 hidden-sm-down sidebar">
                 <Nav bsStyle="pills" stacked navbar>
                     {this.props.navItems.map((navItem, i) => {
                         return (

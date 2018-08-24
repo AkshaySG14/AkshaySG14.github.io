@@ -9,7 +9,7 @@ class MainNavBarElement extends React.Component {
 
     render() {
         return (
-            <NavItem className={this.props.navActive ? "active" : ""} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
+            <NavItem className={"navbar-item" + (this.props.navActive ? " active" : "")} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
                 {this.props.navItem.name}
             </NavItem>
         )
