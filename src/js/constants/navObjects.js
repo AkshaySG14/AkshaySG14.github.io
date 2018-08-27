@@ -20,10 +20,6 @@ export const MAIN_NAVBAR_ITEMS = [
         "id": "MMR"
     },
     {
-        "name": "Magnetic Motion Demo",
-        "id": "MMD"
-    },
-    {
         "name": "Pixel Knight",
         "id": "PK"
     },
@@ -49,7 +45,7 @@ export const MAIN_NAVBAR_ITEMS = [
     }
 ];
 
-export const SIDEBAR_NAV_ITEMS = [
+export const BASE_SIDEBAR_NAV_ITEMS = [
     {
         "name": "Summary",
         "id": "summary"
@@ -57,14 +53,6 @@ export const SIDEBAR_NAV_ITEMS = [
     {
         "name": "Code",
         "id": "code"
-    },
-    {
-        "name": "Screenshots",
-        "id": "screenshots"
-    },
-    {
-        "name": "Video",
-        "id": "video"
     },
     {
         "name": "Links",
