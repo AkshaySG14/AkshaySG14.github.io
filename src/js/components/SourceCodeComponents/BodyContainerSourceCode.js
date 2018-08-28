@@ -1,10 +1,13 @@
 import React from "react";
 
+import PrismCode from "react-prism";
+import "prismjs/themes/prism.css"
+
 class MainNavBarContainerSourceCodeComponent extends React.Component {
     render() {
         return (
-            <pre><code className="javascript">{`
-    import React from "react";
+            <PrismCode component="pre" className="language-javascript">{
+            `    import React from "react";
     import connect from 'react-redux/lib/connect/connect';
 
     import SidebarContainer from "../containers/SidebarContainer";
@@ -26,9 +29,8 @@ class MainNavBarContainerSourceCodeComponent extends React.Component {
         }
     }
 
-    export default connect(null, null)(BodyContainer);
-            `}
-        </code></pre>
+    export default connect(null, null)(BodyContainer);`}
+            </PrismCode>
         )
     }
 }

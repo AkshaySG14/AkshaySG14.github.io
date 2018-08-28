@@ -1,10 +1,13 @@
 import React from "react";
 
+import PrismCode from "react-prism";
+import "prismjs/themes/prism.css"
+
 class MainNavBarContainerSourceCodeComponent extends React.Component {
     render() {
         return (
-            <pre><code className="javascript">{`
-    import React from "react";
+            <PrismCode component="pre" className="language-javascript">{
+            `    import React from "react";
     import PropTypes from "prop-types"
     import connect from 'react-redux/lib/connect/connect';
     import {Navbar, Nav} from "react-bootstrap"
@@ -53,9 +56,8 @@ class MainNavBarContainerSourceCodeComponent extends React.Component {
     };
 
     const MainNavBarContainer = connect(mapStateToProps, mapDispatchToProps)(MainNavBar);
-    export default MainNavBarContainer;
-            `}
-        </code></pre>
+    export default MainNavBarContainer;`}
+            </PrismCode>
         )
     }
 }

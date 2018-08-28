@@ -4,7 +4,24 @@ import connect from 'react-redux/lib/connect/connect';
 
 import { DropdownButton, MenuItem } from "react-bootstrap"
 
-class SummaryContainer extends React.Component {
+import Prism from "prismjs";
+
+import { changeSourceCodeComponent } from "../actions/index"
+import { WEBSITE_SOURCE_CODE_COMPONENTS } from "../constants/sourceCode"
+import { HOME } from "../constants/store"
+
+class SourceCodeContainer extends React.Component {
+    handleSelect(activeSourceCodeNumber) {
+        let activeSourceCodeComponent = null;
+
+        switch (this.props.currentPage) {
+            case HOME:
+                activeSourceCodeComponent = WEBSITE_SOURCE_CODE_COMPONENTS[activeSourceCodeNumber];
+                break;
+        }
+        this.props.changeSourceCodeComponent(activeSourceCodeComponent, activeSourceCodeNumber);
+    };
+
     render() {
         return (
             <div>
@@ -21,9 +38,10 @@ class SummaryContainer extends React.Component {
                             return (
                                 <MenuItem
                                     eventKey={i}
-                                    data-val={i}
+                                    data-val={option}
                                     key={i}
                                     active
+                                    onSelect={() => this.handleSelect(i)}
                                 >
                                     {option}
                                 </MenuItem>
@@ -33,8 +51,9 @@ class SummaryContainer extends React.Component {
                             return (
                                 <MenuItem
                                     eventKey={i}
-                                    data-val={i}
+                                    data-val={option}
                                     key={i}
+                                    onSelect={() => this.handleSelect(i)}
                                 >
                                     {option}
                                 </MenuItem>
@@ -43,29 +62,37 @@ class SummaryContainer extends React.Component {
                     })}
                 </DropdownButton>
                 <br/>
-                <br/>
                 <div id="active-source">
-                    {this.props.activeSourceCode}
+                    {this.props.activeSourceCodeComponent}
                 </div>
             </div>
         );
     }
 }
 
-SummaryContainer.propTypes = {
+SourceCodeContainer.propTypes = {
     currentPage: PropTypes.string.isRequired,
     sourceCodeOptions: PropTypes.array.isRequired,
     activeSourceCodeNumber: PropTypes.number.isRequired,
-    activeSourceCode: PropTypes.object.isRequired
+    activeSourceCodeComponent: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
     return {
         sourceCodeOptions: state.sourceCodeOptions,
-        activeSourceCode: state.activeSourceCode,
+        activeSourceCodeComponent: state.activeSourceCodeComponent,
         activeSourceCodeNumber: state.activeSourceCodeNumber,
         currentPage: state.currentPage
     };
 };
 
-export default connect(mapStateToProps, null)(SummaryContainer);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeSourceCodeComponent: (
+            activeSourceCodeComponent,
+            activeSourceCodeNumber
+        ) => dispatch(changeSourceCodeComponent(activeSourceCodeComponent, activeSourceCodeNumber))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SourceCodeContainer);

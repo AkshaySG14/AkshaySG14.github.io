@@ -1,3 +1,3 @@
-import { ADD_ARTICLE } from "../constants/actionTypes"
+import { CHANGE_SOURCE_CODE_COMPONENT } from "../constants/actionTypes"
 
-export const addArticle = article => ({ type: ADD_ARTICLE, payload: article });
+export const changeSourceCodeComponent = (sourceCodeComponent, sourceCodeNumber) => ({ type: CHANGE_SOURCE_CODE_COMPONENT, payload: {sourceCodeComponent, sourceCodeNumber} });

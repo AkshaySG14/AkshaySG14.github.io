@@ -33,7 +33,7 @@ LinksContainer.propTypes = {
 const mapStateToProps = (state) => {
     return {
         currentLink: state.currentLink,
-        currentDownload: state.currentLink,
+        currentDownload: state.currentDownload,
         currentDownloadName: state.currentDownloadName
     };
 };
