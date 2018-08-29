@@ -1,18 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
-import {HOME} from "../constants/store";
-import HomeSummaryComponent from "../components/SummaryComponents/Home";
+import { SUMMARY_OBJECTS } from "../constants/SummaryObjects";
 
 class SummaryContainer extends React.Component {
     render() {
-        switch (this.props.currentPage) {
-            case HOME: return (
-                    <HomeSummaryComponent/>
-                );
-            default:
-                return null;
-        }
+        return (
+            SUMMARY_OBJECTS[this.props.currentPage]
+        );
     }
 }
 

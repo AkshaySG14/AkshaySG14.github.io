@@ -7,7 +7,7 @@ import { Nav } from "react-bootstrap"
 
 import "./css/SidebarContainer.css"
 
-class MainNavBar extends React.Component {
+class SidebarContainer extends React.Component {
     render() {
         return (
             <div className="hidden-sm-down sidebar col-md-1">
@@ -23,7 +23,7 @@ class MainNavBar extends React.Component {
     }
 }
 
-MainNavBar.propTypes = {
+SidebarContainer.propTypes = {
     navItems: PropTypes.array.isRequired,
     activeNavItem: PropTypes.number.isRequired,
 };
@@ -40,5 +40,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const MainNavBarContainer = connect(mapStateToProps, mapDispatchToProps)(MainNavBar);
-export default MainNavBarContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarContainer);

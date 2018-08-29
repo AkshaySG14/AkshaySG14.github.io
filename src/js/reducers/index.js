@@ -1,22 +1,23 @@
 import React from "react";
 
-import {MAIN_NAVBAR_ITEMS, BASE_SIDEBAR_NAV_ITEMS} from "../constants/navObjects"
-import { CHANGE_SOURCE_CODE_COMPONENT } from "../constants/actionTypes"
-import {HOME} from "../constants/store";
-import { WEBSITE_SOURCE_CODE, WEBSITE_SOURCE_CODE_COMPONENTS } from "../constants/sourceCode";
+import { MAIN_NAVBAR_ITEMS, SIDEBAR_NAV_ITEMS } from "../constants/NavObjects"
+import { CHANGE_PAGE, CHANGE_SOURCE_CODE_COMPONENT } from "../constants/ActionTypes"
+import { HOME } from "../constants/Store";
+import { SOURCE_CODE_NAMES, SOURCE_CODE_COMPONENTS } from "../constants/SourceCode";
+import { DOWNLOAD_NAMES, DOWNLOAD_FILES, DOWNLOAD_LINKS } from "../constants/LinkObjects";
 
 const initialState = {
     mainNavItems: MAIN_NAVBAR_ITEMS,
     mainActiveNavItem: 0,
-    sidebarNavItems: BASE_SIDEBAR_NAV_ITEMS,
+    sidebarNavItems: SIDEBAR_NAV_ITEMS[HOME],
     sidebarActiveNavItem: 0,
     currentPage: HOME,
-    sourceCodeOptions: WEBSITE_SOURCE_CODE,
-    activeSourceCodeComponent: WEBSITE_SOURCE_CODE_COMPONENTS[0],
+    sourceCodeOptions: SOURCE_CODE_NAMES[HOME],
+    activeSourceCodeComponent: SOURCE_CODE_COMPONENTS[HOME][0],
     activeSourceCodeNumber: 0,
-    currentLink: "https://github.com/AkshaySG14/AkshaySG14.github.io",
-    currentDownload: "Static/Assets/Website/SourceCode.zip",
-    currentDownloadName: "Source Code"
+    currentLink: DOWNLOAD_LINKS[HOME],
+    currentDownload: DOWNLOAD_FILES[HOME],
+    currentDownloadName: DOWNLOAD_NAMES[HOME]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,6 +27,20 @@ const rootReducer = (state = initialState, action) => {
                 ... state,
                 activeSourceCodeComponent: action.payload.sourceCodeComponent,
                 activeSourceCodeNumber: action.payload.sourceCodeNumber
+            };
+        case CHANGE_PAGE:
+            return {
+                ... state,
+                mainActiveNavItem: action.payload.mainActiveNavItem,
+                sidebarNavItems: action.payload.sidebarNavItems,
+                sidebarActiveNavItem: action.payload.sidebarActiveNavItem,
+                sourceCodeOptions: action.payload.sourceCodeOptions,
+                activeSourceCodeComponent: action.payload.activeSourceCodeComponent,
+                activeSourceCodeNumber: action.payload.activeSourceCodeNumber,
+                currentLink: action.payload.currentLink,
+                currentDownload: action.payload.currentDownload,
+                currentDownloadName: action.payload.currentDownloadName,
+                currentPage: action.payload.currentPage
             };
         default:
             return state;

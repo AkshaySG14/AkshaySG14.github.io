@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 import {NavItem} from "react-bootstrap"
 
 class MainNavBarElement extends React.Component {
-    handleSelect() {
-        alert("selected " + this.props.navItem.id);
-    };
-
     render() {
         return (
-            <NavItem className={"navbar-item" + (this.props.navActive ? " active" : "")} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
+            <NavItem
+                className={"navbar-item" + (this.props.navActive ? " active" : "")}
+                activeKey={this.props.navItem.id}
+                onSelect={() => this.props.onSelect(this.props.navItem.id)}
+            >
                 {this.props.navItem.name}
             </NavItem>
         )
@@ -18,7 +18,8 @@ class MainNavBarElement extends React.Component {
 
 MainNavBarElement.propTypes = {
     navItem: PropTypes.object.isRequired,
-    navActive: PropTypes.bool.isRequired
+    navActive: PropTypes.bool.isRequired,
+    onSelect: PropTypes.func.isRequired
 };
 
 export default MainNavBarElement;

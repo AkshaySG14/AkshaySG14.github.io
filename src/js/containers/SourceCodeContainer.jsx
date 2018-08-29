@@ -7,22 +7,17 @@ import { DropdownButton, MenuItem } from "react-bootstrap"
 import Prism from "prismjs";
 
 import { changeSourceCodeComponent } from "../actions/index"
-import { WEBSITE_SOURCE_CODE_COMPONENTS } from "../constants/sourceCode"
-import { HOME } from "../constants/store"
+import { SOURCE_CODE_COMPONENTS } from "../constants/SourceCode"
 
 class SourceCodeContainer extends React.Component {
     handleSelect(activeSourceCodeNumber) {
-        let activeSourceCodeComponent = null;
-
-        switch (this.props.currentPage) {
-            case HOME:
-                activeSourceCodeComponent = WEBSITE_SOURCE_CODE_COMPONENTS[activeSourceCodeNumber];
-                break;
-        }
+        let activeSourceCodeComponent = SOURCE_CODE_COMPONENTS[this.props.currentPage][activeSourceCodeNumber];
+        console.log(SOURCE_CODE_COMPONENTS[this.props.currentPage]);
         this.props.changeSourceCodeComponent(activeSourceCodeComponent, activeSourceCodeNumber);
     };
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <hr id="code"/>
