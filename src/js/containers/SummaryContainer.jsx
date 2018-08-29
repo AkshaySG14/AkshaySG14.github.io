@@ -1,23 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
-import { SUMMARY_OBJECTS } from "../constants/SummaryObjects";
 
 class SummaryContainer extends React.Component {
     render() {
         return (
-            SUMMARY_OBJECTS[this.props.currentPage]
+            this.props.currentSummaryComponent
         );
     }
 }
 
 SummaryContainer.propTypes = {
-    currentPage: PropTypes.string.isRequired
+    currentSummaryComponent: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
     return {
-        currentPage: state.currentPage
+        currentSummaryComponent: state.currentSummaryComponent
     };
 };
 

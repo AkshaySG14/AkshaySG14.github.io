@@ -1,23 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
-import { screenshot_OBJECTS } from "../constants/ScreenshotObjects";
 
 class ScreenshotContainer extends React.Component {
     render() {
         return (
-            screenshot_OBJECTS[this.props.currentPage]
+            this.props.currentScreenshotComponent
         );
     }
 }
 
 ScreenshotContainer.propTypes = {
-    currentPage: PropTypes.string.isRequired
+    currentScreenshotComponent: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
     return {
-        currentPage: state.currentPage
+        currentScreenshotComponent: state.currentScreenshotComponent
     };
 };
 
