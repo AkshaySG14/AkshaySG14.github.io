@@ -18,7 +18,7 @@ export const MAIN_NAVBAR_ITEMS = [
         "id": DA
     },
     {
-        "name": "Memori",
+        "name": "memori",
         "id": MM
     },
     {
@@ -68,7 +68,7 @@ export const SIDEBAR_NAV_ITEMS = {
             "id": "summary"
         },
         {
-            "name": "Screenshots",
+            "name": "screenshots",
             "id": "screenshots"
         },
         {

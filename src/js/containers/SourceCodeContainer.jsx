@@ -12,7 +12,6 @@ import { SOURCE_CODE_COMPONENTS } from "../constants/SourceCode"
 class SourceCodeContainer extends React.Component {
     handleSelect(activeSourceCodeNumber) {
         let activeSourceCodeComponent = SOURCE_CODE_COMPONENTS[this.props.currentPage][activeSourceCodeNumber];
-        console.log(SOURCE_CODE_COMPONENTS[this.props.currentPage]);
         this.props.changeSourceCodeComponent(activeSourceCodeComponent, activeSourceCodeNumber);
     };
 
