@@ -47,41 +47,73 @@ export const MAIN_NAVBAR_ITEMS = [
     }
 ];
 
+const BASIC_SIDEBAR = [
+    {
+        "name": "Summary",
+        "id": "summary"
+    },
+    {
+        "name": "Code",
+        "id": "code"
+    },
+    {
+        "name": "Links",
+        "id": "links"
+    }
+];
+
+const SCREENSHOT_SIDEBAR = [
+    {
+        "name": "Summary",
+        "id": "summary"
+    },
+    {
+        "name": "Screenshots",
+        "id": "screenshots"
+    },
+    {
+        "name": "Code",
+        "id": "code"
+    },
+    {
+        "name": "Links",
+        "id": "links"
+    }
+];
+
+const VIDEO_SIDEBAR = [
+    {
+        "name": "Summary",
+        "id": "summary"
+    },
+    {
+        "name": "Screenshots",
+        "id": "screenshots"
+    },
+    {
+        "name": "Video",
+        "id": "video"
+    },
+    {
+        "name": "Code",
+        "id": "code"
+    },
+    {
+        "name": "Links",
+        "id": "links"
+    }
+];
+
 export const SIDEBAR_NAV_ITEMS = {
-    [HOME]: [
-        {
-            "name": "Summary",
-            "id": "summary"
-        },
-        {
-            "name": "Code",
-            "id": "code"
-        },
-        {
-            "name": "Links",
-            "id": "links"
-        }
-    ],
-    [FR]: [
-        {
-            "name": "Summary",
-            "id": "summary"
-        },
-        {
-            "name": "screenshots",
-            "id": "screenshots"
-        },
-        {
-            "name": "Video",
-            "id": "video"
-        },
-        {
-            "name": "Code",
-            "id": "code"
-        },
-        {
-            "name": "Links",
-            "id": "links"
-        }
-    ],
+    [HOME]: BASIC_SIDEBAR,
+    [FR]: VIDEO_SIDEBAR,
+    [MB]: VIDEO_SIDEBAR,
+    [DA]: SCREENSHOT_SIDEBAR,
+    [MM]: VIDEO_SIDEBAR,
+    [PK]: VIDEO_SIDEBAR,
+    [CS]: SCREENSHOT_SIDEBAR,
+    [DE]: SCREENSHOT_SIDEBAR,
+    [FE]: SCREENSHOT_SIDEBAR,
+    [TD]: SCREENSHOT_SIDEBAR,
+    [SS]: SCREENSHOT_SIDEBAR,
 };

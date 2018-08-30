@@ -32,7 +32,15 @@ export const SOURCE_CODE_NAMES = {
         "World.java",
         "Beetle.java",
         "Wizard.java"
-    ]
+    ],
+    [MB]: [
+        "Daur.java",
+        "GameScreen.java",
+        "Storage.java",
+        "World.java",
+        "Beetle.java",
+        "Wizard.java"
+    ],
 };
 
 export const SOURCE_CODE_COMPONENTS = {
@@ -51,5 +59,13 @@ export const SOURCE_CODE_COMPONENTS = {
         <WorldSourceCode/>,
         <BeetleSourceCode/>,
         <WizardSourceCode/>,
-    ]
+    ],
+    [MB]: [
+        <DaurSourceCode/>,
+        <GameScreenSourceCode/>,
+        <StorageSourceCode/>,
+        <WorldSourceCode/>,
+        <BeetleSourceCode/>,
+        <WizardSourceCode/>,
+    ],
 };

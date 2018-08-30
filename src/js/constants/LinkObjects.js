@@ -39,18 +39,23 @@ export const DOWNLOAD_FILES = {
     [SS]: SpaceShooterZip
 };
 
+const GOOGLE = "Google Playstore Link";
+const MAC = "Mac Application Download";
+const JAR = "Jar Download";
+const SOURCE = "Source Code Download";
+
 export const DOWNLOAD_NAMES = {
-    [HOME]: "Source Code Download",
-    [FR]: "Jar Download",
-    [MB]: "Zip Download",
-    [DA]: "Jar Download",
-    [MM]: "Google Playstore Link",
-    [PK]: "Jar Download",
-    [CS]: "Mac Application Download",
-    [DE]: "Mac Application Download",
-    [FE]: "Mac Application Download",
-    [TD]: "Source Code Download",
-    [SS]: "Mac Application Download"
+    [HOME]: SOURCE,
+    [FR]: JAR,
+    [MB]: MAC,
+    [DA]: JAR,
+    [MM]: GOOGLE,
+    [PK]: JAR,
+    [CS]: MAC,
+    [DE]: MAC,
+    [FE]: MAC,
+    [TD]: SOURCE,
+    [SS]: MAC
 };
 
 export const FILE_NAMES = {

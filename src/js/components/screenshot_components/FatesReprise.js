@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Col, Image } from "react-bootstrap"
+
 import screenshot1 from "./images/fates_reprise/fatesreprisescreen1.png"
 import screenshot2 from "./images/fates_reprise/fatesreprisescreen2.png"
 import screenshot3 from "./images/fates_reprise/fatesreprisescreen3.png"
@@ -18,48 +20,39 @@ class FatesReprisescreenshotComponent extends React.Component {
                 <h2>Screenshots</h2>
 
                 <div className="row">
-                    <div className="col-sm-4">
-                        <img src={screenshot1} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot One"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot2} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Two"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot3} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Three"/>
-                    </div>
+                    <Col sm={4}>
+                        <Image src={screenshot1} alt="Fate's Reprise screenshot One" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot2} alt="Fate's Reprise screenshot Two" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot3} alt="Fate's Reprise screenshot Three" thumbnail={true}/>
+                    </Col>
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-4">
-                        <img src={screenshot4} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Four"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot5} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Five"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot6} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Six"/>
-                    </div>
+                    <Col sm={4}>
+                        <Image src={screenshot4} alt="Fate's Reprise screenshot Four" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot5} alt="Fate's Reprise screenshot Five" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot6} alt="Fate's Reprise screenshot Six" thumbnail={true}/>
+                    </Col>
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-4">
-                        <img src={screenshot7} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Seven"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot8} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Eight"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot9} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Nine"/>
-                    </div>
+                    <Col sm={4}>
+                        <Image src={screenshot7} alt="Fate's Reprise screenshot Seven" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot8} alt="Fate's Reprise screenshot Eight" thumbnail={true}/>
+                    </Col>
+                    <Col sm={4}>
+                        <Image src={screenshot9} alt="Fate's Reprise screenshot Nine" thumbnail={true}/>
+                    </Col>
                 </div>
 
             </div>
