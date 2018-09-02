@@ -18,7 +18,7 @@ export const MAIN_NAVBAR_ITEMS = [
         "id": DA
     },
     {
-        "name": "memori",
+        "name": "Memori",
         "id": MM
     },
     {

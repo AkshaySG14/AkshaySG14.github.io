@@ -11,6 +11,8 @@ import FileEncryptorZip from "./files/FileEncryptor.zip"
 import TrafficDirectorZip from "./files/TrafficDirector.zip"
 import SpaceShooterZip from "./files/SpaceShooter.zip"
 
+const PLAYSTORE_LINK = "https://play.google.com/store/apps/details?id=memori.circle&hl=en";
+
 export const DOWNLOAD_LINKS = {
     [HOME]: "https://github.com/AkshaySG14/AkshaySG14.github.io",
     [FR]: "https://github.com/AkshaySG14/Fates-Reprise",
@@ -30,7 +32,7 @@ export const DOWNLOAD_FILES = {
     [FR]: FatesRepriseJar,
     [MB]: MapBlueZip,
     [DA]: DarkAndLightJar,
-    [MM]: null,
+    [MM]: PLAYSTORE_LINK,
     [PK]: PixelKnightJar,
     [CS]: ColorSynthesizerZip,
     [DE]: DocumentEncryptorZip,

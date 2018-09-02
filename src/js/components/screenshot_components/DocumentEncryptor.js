@@ -1,14 +1,11 @@
 import React from "react";
 
-import screenshot1 from "./images/fates_reprise/fatesreprisescreen1.png"
-import screenshot2 from "./images/fates_reprise/fatesreprisescreen2.png"
-import screenshot3 from "./images/fates_reprise/fatesreprisescreen3.png"
-import screenshot4 from "./images/fates_reprise/fatesreprisescreen4.png"
-import screenshot5 from "./images/fates_reprise/fatesreprisescreen5.png"
-import screenshot6 from "./images/fates_reprise/fatesreprisescreen6.png"
-import screenshot7 from "./images/fates_reprise/fatesreprisescreen7.png"
-import screenshot8 from "./images/fates_reprise/fatesreprisescreen8.png"
-import screenshot9 from "./images/fates_reprise/fatesreprisescreen9.png"
+import screenshot1 from "./images/document_encryptor/documentencryptorscreen1.png"
+import screenshot2 from "./images/document_encryptor/documentencryptorscreen2.png"
+import screenshot3 from "./images/document_encryptor/documentencryptorscreen3.png"
+import screenshot4 from "./images/document_encryptor/documentencryptorscreen4.png"
+import screenshot5 from "./images/document_encryptor/documentencryptorscreen5.png"
+import screenshot6 from "./images/document_encryptor/documentencryptorscreen6.png"
 
 class DocumentEncryptorScreenshotCompoonent extends React.Component {
     render() {
@@ -19,49 +16,26 @@ class DocumentEncryptorScreenshotCompoonent extends React.Component {
 
                 <div className="row">
                     <div className="col-sm-4">
-                        <img src={screenshot1} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot One"/>
+                        <img src={screenshot1} className="img-thumbnail" alt="Document Encryptor Screenshot One"/>
                     </div>
                     <div className="col-sm-4">
-                        <img src={screenshot2} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Two"/>
+                        <img src={screenshot2} className="img-thumbnail" alt="Document Encryptor Screenshot Two"/>
                     </div>
                     <div className="col-sm-4">
-                        <img src={screenshot3} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Three"/>
+                        <img src={screenshot3} className="img-thumbnail" alt="Document Encryptor Screenshot Three"/>
                     </div>
                 </div>
-
                 <div className="row">
                     <div className="col-sm-4">
-                        <img src={screenshot4} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Four"/>
+                        <img src={screenshot4} className="img-thumbnail" alt="Document Encryptor Screenshot Four"/>
                     </div>
                     <div className="col-sm-4">
-                        <img src={screenshot5} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Five"/>
+                        <img src={screenshot5} className="img-thumbnail" alt="Document Encryptor Screenshot Five"/>
                     </div>
                     <div className="col-sm-4">
-                        <img src={screenshot6} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Six"/>
+                        <img src={screenshot6} className="img-thumbnail" alt="Document Encryptor Screenshot Six"/>
                     </div>
                 </div>
-
-                <div className="row">
-                    <div className="col-sm-4">
-                        <img src={screenshot7} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Seven"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot8} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Eight"/>
-                    </div>
-                    <div className="col-sm-4">
-                        <img src={screenshot9} className="img-thumbnail"
-                             alt="Fate's Reprise screenshot Nine"/>
-                    </div>
-                </div>
-
             </div>
         );
     };

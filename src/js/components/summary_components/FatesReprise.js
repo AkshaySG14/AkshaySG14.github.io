@@ -30,8 +30,6 @@ class FatesRepriseSummaryComponent extends React.Component {
                     be changed to something without a space and apostrophe before being launched via terminal/command line.
                     <br/><br/>
                     Some of the sounds of the game are taken directly from Link to the Past, Link's Awakening, and Link Oracle of Seasons/Ages. Some were created by myself using the various chiptunes soundmakers online. The music of the game is all directly ripped from Link's Awakening, as it was a great source of inspiration for Fate's Reprise.
-                    <br/><br/>
-                    NOTE: The game is as of yet unfinished. However, the game up until the first dungeon may be completed.
                 </p>
 
                 <h3>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import video from "./videos/FatesReprise.mp4"
+import video from "./videos/Memori.mp4"
 
 class MemoriVideoComponent extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class MemoriVideoComponent extends React.Component {
                 <hr id="video"/>
 
                 <h2>Video Preview</h2>
-                <video width="640" height="380" preload="none" controls>
+                <video width="384" height="216" preload="none" controls>
                     <source src={video}/>
                     Your browser is unable to play this video.
                 </video>
