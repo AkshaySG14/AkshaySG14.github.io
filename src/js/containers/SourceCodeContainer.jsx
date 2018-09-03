@@ -72,8 +72,7 @@ const mapStateToProps = (state) => {
     return {
         sourceCodeOptions: state.sourceCodeOptions,
         activeSourceCodeComponent: state.activeSourceCodeComponent,
-        activeSourceCodeNumber: state.activeSourceCodeNumber,
-        currentPage: state.currentPage
+        activeSourceCodeNumber: state.activeSourceCodeNumber
     };
 };
 

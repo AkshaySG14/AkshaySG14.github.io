@@ -6,8 +6,15 @@ import SidebarElement from "../components/SidebarElement";
 import { Nav } from "react-bootstrap"
 
 import "./css/SidebarContainer.css"
+import { changeSidebarActive } from "../actions/index";
 
 class SidebarContainer extends React.Component {
+
+    clickScrollButton(id) {
+        this.props.changeSidebarActive(id);
+        this.props.scrollToComponent(id);
+    }
+
     render() {
         return (
             <div className="hidden-sm-down sidebar col-md-1">
@@ -16,8 +23,8 @@ class SidebarContainer extends React.Component {
                         return (
                             <SidebarElement key={i} {...{
                                 navItem: navItem,
-                                navActive: i === this.props.activeNavItem,
-                                sidebarScroll: this.props.scrollToComponent
+                                navActive: navItem.id === this.props.activeNavItem,
+                                sidebarScroll: this.clickScrollButton.bind(this)
                             }}/>
                         );
                     })}
@@ -29,7 +36,7 @@ class SidebarContainer extends React.Component {
 
 SidebarContainer.propTypes = {
     navItems: PropTypes.array.isRequired,
-    activeNavItem: PropTypes.number.isRequired,
+    activeNavItem: PropTypes.string.isRequired,
     scrollToComponent: PropTypes.func.isRequired
 };
 
@@ -42,6 +49,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        changeSidebarActive: (activeComponent) => dispatch(changeSidebarActive(activeComponent))
     };
 };
 
