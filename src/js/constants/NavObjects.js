@@ -47,60 +47,66 @@ export const MAIN_NAVBAR_ITEMS = [
     }
 ];
 
+export const SUMMARY = "summary";
+export const SCREENSHOTS = "screenshots";
+export const VIDEO = "video";
+export const CODE = "code";
+export const LINKS = "links";
+
 const BASIC_SIDEBAR = [
     {
         "name": "Summary",
-        "id": "summary"
+        "id": SUMMARY
     },
     {
         "name": "Code",
-        "id": "code"
+        "id": CODE
     },
     {
         "name": "Links",
-        "id": "links"
+        "id": LINKS
     }
 ];
 
 const SCREENSHOT_SIDEBAR = [
     {
         "name": "Summary",
-        "id": "summary"
+        "id": SUMMARY
     },
     {
         "name": "Screenshots",
-        "id": "screenshots"
+        "id": SCREENSHOTS
     },
     {
         "name": "Code",
-        "id": "code"
+        "id": CODE
     },
     {
         "name": "Links",
-        "id": "links"
+        "id": LINKS
     }
 ];
 
 const VIDEO_SIDEBAR = [
     {
         "name": "Summary",
-        "id": "summary"
+        "id": SUMMARY
     },
     {
         "name": "Screenshots",
-        "id": "screenshots"
+        "id": SCREENSHOTS
     },
     {
         "name": "Video",
-        "id": "video"
+        "id": VIDEO
     },
     {
         "name": "Code",
-        "id": "code"
+        "id": CODE
     },
     {
         "name": "Links",
-        "id": "links"
+        "id": LINKS
     }
 ];
 

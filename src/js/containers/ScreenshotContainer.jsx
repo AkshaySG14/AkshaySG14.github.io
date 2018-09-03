@@ -11,7 +11,7 @@ class ScreenshotContainer extends React.Component {
 }
 
 ScreenshotContainer.propTypes = {
-    currentScreenshotComponent: PropTypes.object.isRequired
+    currentScreenshotComponent: PropTypes.object
 };
 
 const mapStateToProps = (state) => {

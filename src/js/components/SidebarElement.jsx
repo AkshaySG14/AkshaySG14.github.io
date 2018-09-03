@@ -3,13 +3,17 @@ import PropTypes from "prop-types"
 import {NavItem} from "react-bootstrap"
 
 class SidebarElement extends React.Component {
-    handleSelect() {
-        alert("selected " + this.props.navItem.id);
+    handleSelect(id) {
+        this.props.sidebarScroll(id);
     };
 
     render() {
         return (
-            <NavItem className={this.props.navActive ? "active" : "normal"} activeKey={this.props.navItem.id} onSelect={() => this.handleSelect()}>
+            <NavItem
+                className={this.props.navActive ? "active" : "normal"}
+                activeKey={this.props.navItem.id}
+                onSelect={() => this.handleSelect(this.props.navItem.id)}
+            >
                 {this.props.navItem.name}
             </NavItem>
         )
@@ -18,7 +22,8 @@ class SidebarElement extends React.Component {
 
 SidebarElement.propTypes = {
     navItem: PropTypes.object.isRequired,
-    navActive: PropTypes.bool.isRequired
+    navActive: PropTypes.bool.isRequired,
+    sidebarScroll: PropTypes.func.isRequired
 };
 
 export default SidebarElement;

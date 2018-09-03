@@ -14,7 +14,11 @@ class SidebarContainer extends React.Component {
                 <Nav bsStyle="pills" stacked navbar>
                     {this.props.navItems.map((navItem, i) => {
                         return (
-                            <SidebarElement key={i} {...{navItem: navItem, navActive: i === this.props.activeNavItem}}/>
+                            <SidebarElement key={i} {...{
+                                navItem: navItem,
+                                navActive: i === this.props.activeNavItem,
+                                sidebarScroll: this.props.scrollToComponent
+                            }}/>
                         );
                     })}
                 </Nav>
@@ -26,6 +30,7 @@ class SidebarContainer extends React.Component {
 SidebarContainer.propTypes = {
     navItems: PropTypes.array.isRequired,
     activeNavItem: PropTypes.number.isRequired,
+    scrollToComponent: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

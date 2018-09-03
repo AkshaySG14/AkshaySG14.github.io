@@ -5,7 +5,9 @@ import connect from 'react-redux/lib/connect/connect';
 class SummaryContainer extends React.Component {
     render() {
         return (
-            this.props.currentSummaryComponent
+            <div ref={this.refs.summaryRef}>
+                {this.props.currentSummaryComponent}
+            </div>
         );
     }
 }

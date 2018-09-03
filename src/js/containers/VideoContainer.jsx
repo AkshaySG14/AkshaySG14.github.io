@@ -11,7 +11,7 @@ class VideoContainer extends React.Component {
 }
 
 VideoContainer.propTypes = {
-    currentVideoComponent: PropTypes.object.isRequired
+    currentVideoComponent: PropTypes.object
 };
 
 const mapStateToProps = (state) => {
