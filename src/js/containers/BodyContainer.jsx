@@ -27,13 +27,15 @@ class BodyContainer extends React.Component {
                 this.summaryRef.current.scrollIntoView({block: "end", behavior: "smooth"});
                 break;
             case SCREENSHOTS:
-                this.screenshotRef.current.scrollIntoView({block: "start", behavior: "smooth", inline: "end"});
+                const screenshotAdjusted = this.screenshotRef.current.offsetTop - 50;
+                window.scroll({ top: screenshotAdjusted, behavior: "smooth" });
                 break;
             case VIDEO:
                 this.videoRef.current.scrollIntoView({block: "end", behavior: "smooth"});
                 break;
             case CODE:
-                this.sourceCodeRef.current.scrollIntoView({block: "start", behavior: "smooth", inline: "end"});
+                const codeAdjusted = this.sourceCodeRef.current.offsetTop - 50;
+                window.scroll({ top: codeAdjusted, behavior: "smooth" });
                 break;
             case LINKS:
                 this.linkRef.current.scrollIntoView({block: "end", behavior: "smooth"});
@@ -50,7 +52,7 @@ class BodyContainer extends React.Component {
                     <div ref={this.summaryRef}>
                         <SummaryContainer/>
                     </div>
-                    <div ref={this.screenshotRef}>
+                    <div ref={this.screenshotRef} id="test">
                         <ScreenshotContainer ref={this.screenshotRef}/>
                     </div>
                     <div ref={this.videoRef}>
