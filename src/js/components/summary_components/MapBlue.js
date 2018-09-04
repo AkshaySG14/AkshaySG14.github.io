@@ -35,8 +35,6 @@ class MapBlueSummaryComponent extends React.Component {
                     either through the iPhone simulator or directly on a device that uses iOS.
                 </p>
 
-                <br/>
-
                 <h3>
                     How and Why Map Blue Was Made
                 </h3>

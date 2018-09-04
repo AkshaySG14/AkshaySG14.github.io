@@ -18,8 +18,6 @@ class MemoriSummaryComponent extends React.Component {
                     NOTE: The game is only available on android and can only be downloaded through the Google Play Store
                 </p>
 
-                <br/>
-
                 <h3>
                     How and Why Memori Was Made
                 </h3>

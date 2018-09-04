@@ -33,9 +33,15 @@ class HomeSummaryComponent extends React.Component {
                     How This Website Was Made
                 </h3>
                 <p>
-                    This site was made in HTML, CSS, and jQuery. It utilizes Bootstrap and FontAwesome for its design and images, and PrismJS and UnderscoreJS for some functions. Its code can be easily read and modified, and can serve
-                    as a beginner's learning tool. Its purpose was to help me learn and apply the basic techniques of web development, and to serve as a web
-                    portfolio for a look into my independent applications and how I code.
+                    This site was made in React-Redux, with some third party libraries for UI purposes (such as
+                    React-Bootstrap, awesome-fonts, etc.). Originally, this website was made in HTML, CSS, and
+                    Javascript (with some heavy jQuery). However, after realizing the wonders of React-Redux and the
+                    immense efficiency it brings to the website and the maintainability and clarity it adds to the
+                    code, I decided to redesign the website in React-Redux. I learned React-Redux primarily during my internships,
+                    but the actual construction of the site was done with the help of React documentation and
+                    several online websites (Stack Overflow being the primary one). The end result is an app that is
+                    much cleaner and easier to maintain than my previous HTML website, and one that is far speedier,
+                    maintainable, and scalable than the one I had before.
                 </p>
             </div>
         );

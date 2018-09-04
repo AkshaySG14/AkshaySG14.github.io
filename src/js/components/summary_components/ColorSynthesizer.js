@@ -25,8 +25,6 @@ class ColorSynthesizerSummaryComponent extends React.Component {
                     NOTE: This application can only be downloaded on Mac Operating Systems.
                 </p>
 
-                <br/>
-
                 <h3>
                     How and Why Color Synthesizer Was Made
                 </h3>
