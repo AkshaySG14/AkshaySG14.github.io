@@ -1,7 +1,7 @@
 {
   "name": "ReactWebPage",
   "version": "0.1.0",
-  "homepage": "https://akshaysg14.github.io/ReactWebsite",
+  "homepage": "https://akshaysg14.github.io",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.3",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
