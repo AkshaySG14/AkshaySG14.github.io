@@ -16,7 +16,7 @@ const PLAYSTORE_LINK = "https://play.google.com/store/apps/details?id=memori.cir
 export const DOWNLOAD_LINKS = {
     [HOME]: "https://github.com/AkshaySG14/AkshaySG14.github.io",
     [FR]: "https://github.com/AkshaySG14/Fates-Reprise",
-    [MB]: "https://github.com/AkshaySG14/map_blue",
+    [MB]: "https://github.com/AkshaySG14/MapBlue",
     [DA]: "https://github.com/AkshaySG14/Dark-and-Light",
     [MM]: "https://github.com/AkshaySG14/Circle-Game",
     [PK]: "https://github.com/AkshaySG14/Pixel-Knight",
