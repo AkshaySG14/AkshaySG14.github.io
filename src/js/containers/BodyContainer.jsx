@@ -13,9 +13,9 @@ import Footer from "../components/Footer";
 import "./css/BodyContainer.css"
 
 import { changeSidebarActive } from "../actions/index";
-import {SUMMARY, SCREENSHOTS, VIDEO, CODE, LINKS} from "../constants/NavObjects";
+import {SUMMARY, SCREENSHOTS, VIDEO, CODE, LINKS, V_SIDEBAR, S_SIDEBAR} from "../constants/NavObjects";
 
-const OFFSET_TOP = 30;
+const OFFSET_TOP = 60;
 
 class BodyContainer extends React.Component {
     constructor(props) {
@@ -28,55 +28,32 @@ class BodyContainer extends React.Component {
     }
 
     isTop(element) {
-        return Math.abs(element.getBoundingClientRect().top) <= OFFSET_TOP;
+        const top = element.getBoundingClientRect().top;
+        return top < OFFSET_TOP;
     }
 
-    trackScrollingTop() {
-        this.props.navItems.map(navItem => {
-            switch (navItem.id) {
-                case SUMMARY:
-                    if (this.isTop(this.summaryRef.current)) {
-                        this.props.changeSidebarActive(SUMMARY);
-                    }
-                    break;
-                case SCREENSHOTS:
-                    if (this.isTop(this.screenshotRef.current)) {
-                        this.props.changeSidebarActive(SCREENSHOTS);
-                    }
-                    break;
-                case VIDEO:
-                    if (this.isTop(this.videoRef.current)) {
-                        this.props.changeSidebarActive(VIDEO);
-                    }
-                    break;
-                case CODE:
-                    if (this.isTop(this.sourceCodeRef.current)) {
-                        this.props.changeSidebarActive(CODE);
-                    }
-                    break;
-            }
-        });
-    }
-
-    trackScrollingBottom() {
+    trackScrolling() {
         if (this.linkRef.current.getBoundingClientRect().bottom <= window.innerHeight) {
             this.props.changeSidebarActive(LINKS);
+            return;
         }
-    }
 
-    componentDidMount() {
-        document.addEventListener('scroll', this.trackScrollingTop.bind(this));
-        document.addEventListener('scroll', this.trackScrollingBottom.bind(this));
-    }
-
-    componentDidUpdate() {
-        document.addEventListener('scroll', this.trackScrollingTop.bind(this));
-        document.addEventListener('scroll', this.trackScrollingBottom.bind(this));
-    }
-
-    componentWillUpdate() {
-        document.removeEventListener('scroll', this.trackScrollingTop.bind(this));
-        document.removeEventListener('scroll', this.trackScrollingBottom.bind(this));
+        if (this.isTop(this.sourceCodeRef.current)) {
+            this.props.changeSidebarActive(CODE);
+            return;
+        }
+        if (this.props.currentSidebarConfig === V_SIDEBAR && this.isTop(this.videoRef.current)) {
+            this.props.changeSidebarActive(VIDEO);
+            return;
+        }
+        if ((this.props.currentSidebarConfig === S_SIDEBAR || this.props.currentSidebarConfig === V_SIDEBAR)
+            && this.isTop(this.screenshotRef.current)) {
+            this.props.changeSidebarActive(SCREENSHOTS);
+            return;
+        }
+        if (this.isTop(this.summaryRef.current)) {
+            this.props.changeSidebarActive(SUMMARY);
+        }
     }
 
     scrollToRef = (id) => {
@@ -89,19 +66,33 @@ class BodyContainer extends React.Component {
                 window.scroll({ top: screenshotAdjusted, behavior: "smooth" });
                 break;
             case VIDEO:
-                this.videoRef.current.scrollIntoView({block: "end", behavior: "smooth"});
+                const videoAdjusted = this.videoRef.current.offsetTop - 50;
+                window.scroll({ top: videoAdjusted, behavior: "smooth" });
                 break;
             case CODE:
                 const codeAdjusted = this.sourceCodeRef.current.offsetTop - 50;
                 window.scroll({ top: codeAdjusted, behavior: "smooth" });
                 break;
             case LINKS:
-                this.linkRef.current.scrollIntoView({block: "end", behavior: "smooth"});
+                const linksAdjusted = this.linkRef.current.offsetTop + 50;
+                window.scroll({ top: linksAdjusted, behavior: "smooth" });
                 break;
             default:
                 break;
         }
     };
+
+    componentDidMount() {
+        document.addEventListener('scroll', this.trackScrolling.bind(this));
+    }
+
+    componentDidUpdate() {
+        document.addEventListener('scroll', this.trackScrolling.bind(this));
+    }
+
+    componentWillUpdate() {
+        document.removeEventListener('scroll', this.trackScrolling.bind(this));
+    }
 
     render() {
         return (
@@ -118,7 +109,7 @@ class BodyContainer extends React.Component {
                         <VideoContainer ref={this.videoRef}/>
                     </div>
                     <div ref={this.sourceCodeRef}>
-                        <SourceCodeContainer ref={this.sourceCodeRef} currentPage={this.props.currentPage}/>
+                        <SourceCodeContainer ref={this.sourceCodeRef}/>
                     </div>
                     <div ref={this.linkRef}>
                         <LinkContainer ref={this.linkRef}/>
@@ -131,13 +122,12 @@ class BodyContainer extends React.Component {
 }
 
 BodyContainer.propTypes = {
-    currentPage: PropTypes.string.isRequired
+    currentSidebarConfig: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => {
     return {
-        navItems: state.sidebarNavItems,
-        currentPage: state.currentPage
+        currentSidebarConfig: state.currentSidebarConfig
     };
 };
 

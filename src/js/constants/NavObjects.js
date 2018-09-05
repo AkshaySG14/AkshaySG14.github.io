@@ -121,5 +121,23 @@ export const SIDEBAR_NAV_ITEMS = {
     [DE]: SCREENSHOT_SIDEBAR,
     [FE]: SCREENSHOT_SIDEBAR,
     [TD]: SCREENSHOT_SIDEBAR,
-    [SS]: SCREENSHOT_SIDEBAR,
+    [SS]: SCREENSHOT_SIDEBAR
+};
+
+export const B_SIDEBAR = "basic_sidebar";
+export const V_SIDEBAR = "video_sidebar";
+export const S_SIDEBAR = "screenshot_sidebar";
+
+export const SIDEBAR_NAV_CONFIGURATIONS = {
+    [HOME]: B_SIDEBAR,
+    [FR]: V_SIDEBAR,
+    [MB]: V_SIDEBAR,
+    [DA]: S_SIDEBAR,
+    [MM]: V_SIDEBAR,
+    [PK]: V_SIDEBAR,
+    [CS]: S_SIDEBAR,
+    [DE]: S_SIDEBAR,
+    [FE]: S_SIDEBAR,
+    [TD]: S_SIDEBAR,
+    [SS]: S_SIDEBAR
 };

@@ -1,18 +1,19 @@
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus {
     color:white;
     background-color:black;
 }
 
-.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+.nav-pills > li.active > a:hover {
     color:gray;
     background-color:black;
 }
 
-.nav-pills > li.normal > a {
+.nav-pills > li.normal > a, .nav-pills > li.normal > a:focus {
     color:black;
+    background-color: white;
 }
 
-.nav-pills > li.normal > a:hover, .nav-pills > li.normal > a:focus {
+.nav-pills > li.normal > a:hover {
     background-color:darkgray;
     color:white;
 }

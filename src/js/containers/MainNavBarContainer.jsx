@@ -10,6 +10,7 @@ import MainNavBarElement from "../components/MainNavBarElement";
 class MainNavBar extends React.Component {
     handleSelect(pageId) {
         this.props.changePage(pageId);
+        window.scroll({ top: 0, behavior: "instant" });
     };
 
     render() {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import video from "./videos/FatesReprise.mp4"
+import video from "./videos/PixelKnight.mp4"
 
 class PixelKnightVideoComponent extends React.Component {
     render() {

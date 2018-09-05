@@ -1,7 +1,10 @@
 import React from "react";
 
 import {HOME, PAGE_POSITIONS} from "../constants/Store";
-import {MAIN_NAVBAR_ITEMS, SIDEBAR_NAV_ITEMS, SUMMARY} from "../constants/NavObjects"
+import {
+    B_SIDEBAR, MAIN_NAVBAR_ITEMS, SIDEBAR_NAV_CONFIGURATIONS, SIDEBAR_NAV_ITEMS,
+    SUMMARY
+} from "../constants/NavObjects"
 import {CHANGE_PAGE, CHANGE_SIDEBAR_ACTIVE, CHANGE_SOURCE_CODE_COMPONENT} from "../constants/ActionTypes"
 import { SOURCE_CODE_NAMES, SOURCE_CODE_COMPONENTS } from "../constants/SourceCode";
 import { DOWNLOAD_NAMES, DOWNLOAD_FILES, DOWNLOAD_LINKS, FILE_NAMES } from "../constants/LinkObjects";
@@ -12,6 +15,7 @@ import { VIDEO_OBJECTS } from "../constants/VideoObjects";
 const initialState = {
     mainNavItems: MAIN_NAVBAR_ITEMS,
     mainActiveNavItem: 0,
+    currentSidebarConfig: B_SIDEBAR,
     sidebarNavItems: SIDEBAR_NAV_ITEMS[HOME],
     sidebarActiveNavItem: SUMMARY,
     currentPage: HOME,
@@ -33,6 +37,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 mainActiveNavItem: PAGE_POSITIONS[action.payload.newPage],
+                currentSidebarConfig: SIDEBAR_NAV_CONFIGURATIONS[action.payload.newPage],
                 sidebarNavItems: SIDEBAR_NAV_ITEMS[action.payload.newPage],
                 sidebarActiveNavItem: SUMMARY,
                 sourceCodeOptions: SOURCE_CODE_NAMES[action.payload.newPage],
