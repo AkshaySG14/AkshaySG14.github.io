@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types"
 import connect from 'react-redux/lib/connect/connect';
 
+import { Col } from "react-bootstrap"
+
 import SidebarContainer from "../containers/SidebarContainer";
 import SummaryContainer from "../containers/SummaryContainer";
 import ScreenshotContainer from "./ScreenshotContainer";
@@ -96,9 +98,9 @@ class BodyContainer extends React.Component {
 
     render() {
         return (
-            <div className={"container-fluid row"}>
+            <div className={"row"}>
                 <SidebarContainer scrollToComponent={this.scrollToRef.bind(this)}/>
-                <div className="body-container">
+                <Col md={11} mdPush={1} className="body-container">
                     <div ref={this.summaryRef}>
                         <SummaryContainer/>
                     </div>
@@ -115,7 +117,7 @@ class BodyContainer extends React.Component {
                         <LinkContainer ref={this.linkRef}/>
                     </div>
                     <Footer/>
-                </div>
+                </Col>
             </div>
         )
     }
