@@ -7,56 +7,92 @@ class SourceCodeContainerSourceCode extends React.Component {
     render() {
         return (
             <PrismCode component="pre" className="language-javascript">{
-            `    import React from "react";
-    import PropTypes from "prop-types"
-    import connect from 'react-redux/lib/connect/connect';
-    import {Navbar, Nav} from "react-bootstrap"
+            `import React from "react";
+import PropTypes from "prop-types"
+import connect from 'react-redux/lib/connect/connect';
 
-    import MainNavBarElement from "../components/MainNavBarElement";
+import { DropdownButton, MenuItem } from "react-bootstrap"
 
-    class MainNavBar extends React.Component {
-        render() {
-            return (
-                <Navbar inverse collapseOnSelect fixedTop fluid className="navbar-toggleable-md">
-                <Navbar.Header>
-                <Navbar.Brand>
-                <p>Apps</p>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                <Nav bsStyle="tabs" className="nav-fill">
-                {this.props.navItems.map((navItem, i) => {
-                    return (
-                        <MainNavBarElement key={i} {...{navItem: navItem, navActive: i === this.props.activeNavItem}}/>
-                    );
-                })}
-                </Nav>
-                </Navbar.Collapse>
-                </Navbar>
-            )
-        }
+import Prism from "prismjs";
+
+import { changeSourceCodeComponent } from "../actions/index"
+
+class SourceCodeContainer extends React.Component {
+    handleSelect(activeSourceCodeNumber) {
+        this.props.changeSourceCodeComponent(activeSourceCodeNumber);
+    };
+
+    render() {
+        return (
+            <div>
+                <hr id="code"/>
+                <h2>{this.props.currentPage} Source Code</h2>
+                <DropdownButton
+                    bsStyle="default"
+                    title={this.props.sourceCodeOptions[this.props.activeSourceCodeNumber]}
+                    key={0}
+                    id={\`dropdown-basic-${0}\`}
+                >
+                    {this.props.sourceCodeOptions.map((option, i) => {
+                        if (i === this.props.activeSourceCodeNumber) {
+                            return (
+                                <MenuItem
+                                    eventKey={i}
+                                    data-val={option}
+                                    key={i}
+                                    active
+                                    onSelect={() => this.handleSelect(i)}
+                                >
+                                    {option}
+                                </MenuItem>
+                            );
+                        }
+                        else {
+                            return (
+                                <MenuItem
+                                    eventKey={i}
+                                    data-val={option}
+                                    key={i}
+                                    onSelect={() => this.handleSelect(i)}
+                                >
+                                    {option}
+                                </MenuItem>
+                            );
+                        }
+                    })}
+                </DropdownButton>
+                <br/>
+                <div id="active-source">
+                    {this.props.activeSourceCodeComponent}
+                </div>
+            </div>
+        );
     }
+}
 
-    MainNavBar.propTypes = {
-        navItems: PropTypes.array.isRequired,
-        activeNavItem: PropTypes.number.isRequired,
+SourceCodeContainer.propTypes = {
+    currentPage: PropTypes.string.isRequired,
+    sourceCodeOptions: PropTypes.array.isRequired,
+    activeSourceCodeNumber: PropTypes.number.isRequired,
+    activeSourceCodeComponent: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+    return {
+        sourceCodeOptions: state.sourceCodeOptions,
+        activeSourceCodeComponent: state.activeSourceCodeComponent,
+        activeSourceCodeNumber: state.activeSourceCodeNumber,
+        currentPage: state.currentPage
     };
+};
 
-    const mapStateToProps = (state) => {
-        return {
-            navItems: state.mainNavItems,
-            activeNavItem: state.mainActiveNavItem
-        };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeSourceCodeComponent: (activeSourceCodeNumber) => dispatch(changeSourceCodeComponent(activeSourceCodeNumber))
     };
+};
 
-    const mapDispatchToProps = (dispatch) => {
-        return {
-        };
-    };
-
-    const MainNavBarContainer = connect(mapStateToProps, mapDispatchToProps)(MainNavBar);
-    export default MainNavBarContainer;`}
+export default connect(mapStateToProps, mapDispatchToProps)(SourceCodeContainer);`}
             </PrismCode>
         )
     }

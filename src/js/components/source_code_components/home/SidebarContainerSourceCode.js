@@ -7,56 +7,56 @@ class SidebarContainerSourceCode extends React.Component {
     render() {
         return (
             <PrismCode component="pre" className="language-javascript">{
-            `    import React from "react";
-    import PropTypes from "prop-types"
-    import connect from 'react-redux/lib/connect/connect';
-    import {Navbar, Nav} from "react-bootstrap"
+            `import React from "react";
+import PropTypes from "prop-types"
+import connect from 'react-redux/lib/connect/connect';
 
-    import MainNavBarElement from "../components/MainNavBarElement";
+import SidebarElement from "../components/SidebarElement";
+import { Col, Nav } from "react-bootstrap"
 
-    class MainNavBar extends React.Component {
-        render() {
-            return (
-                <Navbar inverse collapseOnSelect fixedTop fluid className="navbar-toggleable-md">
-                <Navbar.Header>
-                <Navbar.Brand>
-                <p>Apps</p>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                <Nav bsStyle="tabs" className="nav-fill">
-                {this.props.navItems.map((navItem, i) => {
-                    return (
-                        <MainNavBarElement key={i} {...{navItem: navItem, navActive: i === this.props.activeNavItem}}/>
-                    );
-                })}
+import "./css/SidebarContainer.css"
+import { changeSidebarActive } from "../actions/index";
+
+class SidebarContainer extends React.Component {
+    render() {
+        return (
+            <Col xsHidden md={1} className="sidebar">
+                <Nav bsStyle="pills" stacked navbar>
+                    {this.props.navItems.map((navItem, i) => {
+                        return (
+                            <SidebarElement key={i} {...{
+                                navItem: navItem,
+                                navActive: navItem.id === this.props.activeNavItem,
+                                sidebarScroll: this.props.scrollToComponent
+                            }}/>
+                        );
+                    })}
                 </Nav>
-                </Navbar.Collapse>
-                </Navbar>
-            )
-        }
+            </Col>
+        )
     }
+}
 
-    MainNavBar.propTypes = {
-        navItems: PropTypes.array.isRequired,
-        activeNavItem: PropTypes.number.isRequired,
+SidebarContainer.propTypes = {
+    navItems: PropTypes.array.isRequired,
+    activeNavItem: PropTypes.string.isRequired,
+    scrollToComponent: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => {
+    return {
+        navItems: state.sidebarNavItems,
+        activeNavItem: state.sidebarActiveNavItem
     };
+};
 
-    const mapStateToProps = (state) => {
-        return {
-            navItems: state.mainNavItems,
-            activeNavItem: state.mainActiveNavItem
-        };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeSidebarActive: (activeComponent) => dispatch(changeSidebarActive(activeComponent))
     };
+};
 
-    const mapDispatchToProps = (dispatch) => {
-        return {
-        };
-    };
-
-    const MainNavBarContainer = connect(mapStateToProps, mapDispatchToProps)(MainNavBar);
-    export default MainNavBarContainer;`}
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarContainer);`}
             </PrismCode>
         )
     }

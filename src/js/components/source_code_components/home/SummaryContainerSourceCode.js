@@ -7,56 +7,31 @@ class SummaryContainerSourceCode extends React.Component {
     render() {
         return (
             <PrismCode component="pre" className="language-javascript">{
-            `    import React from "react";
-    import PropTypes from "prop-types"
-    import connect from 'react-redux/lib/connect/connect';
-    import {Navbar, Nav} from "react-bootstrap"
+            `import React from "react";
+import PropTypes from "prop-types"
+import connect from 'react-redux/lib/connect/connect';
 
-    import MainNavBarElement from "../components/MainNavBarElement";
-
-    class MainNavBar extends React.Component {
-        render() {
-            return (
-                <Navbar inverse collapseOnSelect fixedTop fluid className="navbar-toggleable-md">
-                <Navbar.Header>
-                <Navbar.Brand>
-                <p>Apps</p>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                <Nav bsStyle="tabs" className="nav-fill">
-                {this.props.navItems.map((navItem, i) => {
-                    return (
-                        <MainNavBarElement key={i} {...{navItem: navItem, navActive: i === this.props.activeNavItem}}/>
-                    );
-                })}
-                </Nav>
-                </Navbar.Collapse>
-                </Navbar>
-            )
-        }
+class SummaryContainer extends React.Component {
+    render() {
+        return (
+            <div ref={this.refs.summaryRef}>
+                {this.props.currentSummaryComponent}
+            </div>
+        );
     }
+}
 
-    MainNavBar.propTypes = {
-        navItems: PropTypes.array.isRequired,
-        activeNavItem: PropTypes.number.isRequired,
+SummaryContainer.propTypes = {
+    currentSummaryComponent: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+    return {
+        currentSummaryComponent: state.currentSummaryComponent
     };
+};
 
-    const mapStateToProps = (state) => {
-        return {
-            navItems: state.mainNavItems,
-            activeNavItem: state.mainActiveNavItem
-        };
-    };
-
-    const mapDispatchToProps = (dispatch) => {
-        return {
-        };
-    };
-
-    const MainNavBarContainer = connect(mapStateToProps, mapDispatchToProps)(MainNavBar);
-    export default MainNavBarContainer;`}
+export default connect(mapStateToProps, null)(SummaryContainer);`}
             </PrismCode>
         )
     }
